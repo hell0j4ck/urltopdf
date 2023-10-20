@@ -30,12 +30,6 @@ app.get('/', (req, res) => {
 
 
 
-app.get('/form', (req, res) => {
-
-
-    res.render('form.ejs')
-
-})
 
 
 app.post('/form', async (req, res) => {
@@ -91,6 +85,7 @@ app.post('/form', async (req, res) => {
         // Generates a unique ID for the PDF 
         const fileId = uuid()
         const fileName = `result-${fileId}.pdf`
+        const screenShotName = `result-${fileId}.png`
 
 
 
@@ -117,7 +112,7 @@ app.post('/form', async (req, res) => {
 
 
 
-        res.render('result.ejs', { fileId, fileName })
+        res.render('result.ejs', { fileId, fileName, screenShotName })
 
 
     } catch (e) {
@@ -142,6 +137,24 @@ app.get('/fetchPdf', (req, res) => {
     const { fileName } = req.query
     console.log(req.query)
     res.sendFile(path.join(__dirname, `/pdfs/${fileName}`));
+
+})
+
+app.get('/fetchScreenshot', (req, res) => {
+
+    const { fileName } = req.query
+    console.log(req.query)
+    res.sendFile(path.join(__dirname, `/screenshots/${fileName}`));
+
+})
+
+
+
+app.get('*', (req, res) => {
+
+
+    res.send("Page Not Found...")
+
 
 })
 
