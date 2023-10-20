@@ -71,13 +71,13 @@ app.post('/form', async (req, res) => {
             
         // }
 
-        // await page.waitForSelector('img', { timeout: 5_000 });
-        // // await page.waitForSelector('video', { timeout: 5_000 });
-        // await page.waitForSelector('p', { timeout: 5_000 });
-        // await page.waitForSelector('a', { timeout: 5_000 });
-        // await page.waitForSelector('script', { timeout: 5_000 });
-        // await page.waitForSelector('link', { timeout: 5_000 });
-        // page.waitForNetworkIdle()    
+        await page.waitForSelector('img', { timeout: 5_000 });
+        // await page.waitForSelector('video', { timeout: 5_000 });
+        await page.waitForSelector('p', { timeout: 5_000 });
+        await page.waitForSelector('a', { timeout: 5_000 });
+        await page.waitForSelector('script', { timeout: 5_000 });
+        await page.waitForSelector('link', { timeout: 5_000 });
+        page.waitForNetworkIdle()    
 
         await page.emulateMediaType('screen');
 
