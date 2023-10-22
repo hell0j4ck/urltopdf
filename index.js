@@ -44,6 +44,8 @@ app.post('/form', async (req, res) => {
     // Creates page instance
     const page = await browser.newPage();
 
+    page.setDefaultNavigationTimeout(0)
+
     // If Link is not valid, it will redirect to the form submission via the catch 
     try {
 
